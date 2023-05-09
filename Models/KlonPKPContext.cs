@@ -112,17 +112,6 @@ namespace KlonPKP_CodeFirst.Models
                     .HasColumnType("decimal(5,2)");
             });
 
-            modelBuilder.Entity<TypWagonu>(entity =>
-            {
-                entity.HasKey(e => e.Nazwa)
-                    .HasName("PK__TypWagonu__Nazwa");
-                entity.Property(e => e.Nazwa)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-                entity.Property(e => e.Cena)
-                    .IsRequired()
-                    .HasColumnType("decimal(5,2)");
-            });
 
             modelBuilder.Entity<Pociag>(entity =>
             {
@@ -226,6 +215,33 @@ namespace KlonPKP_CodeFirst.Models
                     .IsUnicode(false);
                 Entity.Property(e => e.Naleznosc).IsRequired();
             });
+
+            modelBuilder.Entity<Przewoznik>(Entity =>
+            {
+                Entity.HasKey(e => e.Nazwa)
+                    .HasName("PK__Przewoznik__Nazwa");
+                Entity.Property(e => e.Nazwa)
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Wagon>(Entity =>
+            {
+                Entity.HasKey(e => e.Kod_Wagonu)
+                    .HasName("PK__Wagon__Kod_Wagonu");
+                Entity.Property(e => e.Kod_Wagonu)
+                    .HasMaxLength(8)
+                    .IsUnicode(false);
+                Entity.Property(e => e.Kod_Pociagu)
+                    .HasMaxLength(8)
+                    .IsUnicode(false);
+                Entity.Property(e => e.Typ_Wagonu)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+                Entity.Property(e => e.Nr_Wagonu).IsRequired();
+                Entity.Property(e => e.Ilosc_Miejsc).IsRequired();
+            });
+
         }
     }
 }

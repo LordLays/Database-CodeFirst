@@ -16,8 +16,8 @@ namespace KlonPKP_CodeFirst.Models
         public int Ilosc_Miejsc { get; set; }
         public virtual ICollection<Bilet> Bilety { get; set; } = new List<Bilet>();
         [ForeignKey("Kod_Pociagu")]
-        public virtual Pociag Pociag { get; set; }
+        public virtual string Pociag { get; set; }
         [ForeignKey("Nazwa")]
-        public virtual TypWagonu TypWagonu { get; set; }
+        public virtual string TypWagonu { get; set; }
     }
 }

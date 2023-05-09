@@ -11,10 +11,11 @@ namespace KlonPKP_CodeFirst.Models
     {
         public int ID_Kursu { get; set; }
         [ForeignKey("Kod_Pociagu")]
-        public virtual Pociag Pociag { get; set; }
+        public virtual int Pociag { get; set; }
         [ForeignKey("ID_Statusu")]
-        public virtual Status Status { get; set; }
+        public virtual string Status { get; set; }
         public TimeSpan Czas_Podrozy { get; set; }
         public DateTime Data { get; set; }
+        public virtual ICollection<Bilet> Bilety { get; set; } = new List<Bilet>();
     }
 }

@@ -8,6 +8,7 @@ namespace KlonPKP_CodeFirst.Models
 {
     public class Przewoznik
     {
+
         public string Nazwa { get; set; }
         public virtual ICollection<Pociag> Pociagi { get; set; }
     }
